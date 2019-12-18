@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61330af0-1b34-4ab2-a18a-a2fd588cdbdf" name="Default Changelist" comment="" />
+    <list default="true" id="61330af0-1b34-4ab2-a18a-a2fd588cdbdf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CartTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/CartTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CartTest.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/CartTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            <state relative-caret-position="187">
+              <caret line="129" column="2" selection-start-line="129" selection-start-column="2" selection-end-line="129" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -41,6 +46,14 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>h1[class*='product_title entry-title']</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -63,6 +76,7 @@
     <option name="width" value="1938" />
     <option name="height" value="1050" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -95,7 +109,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576530737838" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576674314151" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -113,33 +127,52 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CartTest.registerUser">
-    <configuration name="CartTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CartTest.changeAmountTripsInCart">
+    <configuration name="CartTest.add10TripToCart" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestFakeStore" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CartTest" />
-      <option name="METHOD_NAME" value="registerUser" />
-      <option name="TEST_OBJECT" value="uniqueId" />
-      <uniqueIds>
-        <uniqueId value="[engine:junit-jupiter]/[class:CartTest]" />
-      </uniqueIds>
+      <option name="METHOD_NAME" value="add10TripToCart" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CartTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CartTest.addTripToCartFromCategories" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestFakeStore" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CartTest" />
+      <option name="METHOD_NAME" value="addTripToCartFromCategories" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CartTest.registerUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CartTest.addTripToCartFromTripWebsite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestFakeStore" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CartTest" />
-      <option name="METHOD_NAME" value="registerUser" />
+      <option name="METHOD_NAME" value="addTripToCartFromTripWebsite" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartTest.changeAmountTripsInCart" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TestFakeStore" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CartTest" />
+      <option name="METHOD_NAME" value="changeAmountTripsInCart" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CartTest.testTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TestFakeStore" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CartTest" />
+      <option name="METHOD_NAME" value="testTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,9 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CartTest.registerUser" />
-        <item itemvalue="JUnit.CartTest (1)" />
-        <item itemvalue="JUnit.CartTest" />
+        <item itemvalue="JUnit.CartTest.changeAmountTripsInCart" />
+        <item itemvalue="JUnit.CartTest.add10TripToCart" />
+        <item itemvalue="JUnit.CartTest.testTest" />
+        <item itemvalue="JUnit.CartTest.addTripToCartFromTripWebsite" />
+        <item itemvalue="JUnit.CartTest.addTripToCartFromCategories" />
       </list>
     </recent_temporary>
   </component>
@@ -167,35 +202,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 21h 51m 15s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_add10TripToCart - 2019.12.18 at 13h 03m 11s.xml">
+      <configuration name="CartTest.add10TripToCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 21h 53m 16s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_add10TripToCart - 2019.12.18 at 13h 07m 05s.xml">
+      <configuration name="CartTest.add10TripToCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 21h 55m 37s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_add10TripToCart - 2019.12.18 at 13h 08m 19s.xml">
+      <configuration name="CartTest.add10TripToCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 21h 57m 08s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_changeAmountTripsInCart - 2019.12.18 at 13h 45m 15s.xml">
+      <configuration name="CartTest.changeAmountTripsInCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 21h 59m 41s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_changeAmountTripsInCart - 2019.12.18 at 13h 46m 21s.xml">
+      <configuration name="CartTest.changeAmountTripsInCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 22h 07m 11s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_changeAmountTripsInCart - 2019.12.18 at 13h 47m 25s.xml">
+      <configuration name="CartTest.changeAmountTripsInCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 22h 09m 40s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_changeAmountTripsInCart - 2019.12.18 at 13h 53m 03s.xml">
+      <configuration name="CartTest.changeAmountTripsInCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 22h 10m 29s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_changeAmountTripsInCart - 2019.12.18 at 13h 54m 26s.xml">
+      <configuration name="CartTest.changeAmountTripsInCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_(1) - 2019.12.16 at 22h 11m 14s.xml">
-      <configuration name="CartTest (1)" configurationId="JUnit" />
+    <history-entry file="CartTest_changeAmountTripsInCart - 2019.12.18 at 13h 56m 11s.xml">
+      <configuration name="CartTest.changeAmountTripsInCart" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CartTest_registerUser - 2019.12.16 at 22h 12m 46s.xml">
-      <configuration name="CartTest.registerUser" configurationId="JUnit" />
+    <history-entry file="CartTest_changeAmountTripsInCart - 2019.12.18 at 13h 57m 12s.xml">
+      <configuration name="CartTest.changeAmountTripsInCart" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -235,9 +270,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/CartTest.java</url>
-          <line>80</line>
+          <line>153</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CartTest.java</url>
+          <line>147</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CartTest.java</url>
+          <line>104</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CartTest.java</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CartTest.java</url>
+          <line>134</line>
+          <properties />
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -252,8 +311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/CartTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        <state relative-caret-position="187">
+          <caret line="129" column="2" selection-start-line="129" selection-start-column="2" selection-end-line="129" selection-end-column="2" />
         </state>
       </provider>
     </entry>
