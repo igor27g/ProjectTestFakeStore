@@ -43,31 +43,40 @@ public class CartTest {
 
     By elementAmountProduct = By.cssSelector("input[name='quantity']");
 
+    By AmountProductInCart = By.cssSelector("input[type='number']");
+    By updateButton = By.cssSelector("button[name='update_cart']");
+
     String email = "user9@jmail.pl";
     String password = "TajnePassword1!@";
 
     String amountProduct = "10";
     String  newAmountProductInCart = "2";
 
+    By iconDelete = By.cssSelector("td[class='product-remove']>a");
+    By alertMessage = By.cssSelector("div[class='woocommerce-message']");
+
+    String alertMessageText;
+    String alertAddProductText;
+    String titleProductText;
 
     @BeforeEach
     public void driverSetup(){
 
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().pageLoadTimeout(25, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.navigate().to(fakeStore);
         driver.findElement(cookies).click();
         wait = new WebDriverWait(driver,10);
 
-//        registerNewUser(email,password);
+
         driver.findElement(mainPage).click();
     }
 
     @AfterEach
     public void driverClose() {
-     //   deleteUser();
+        //deleteUser();
         driver.close();
         driver.quit();
     }
@@ -77,12 +86,13 @@ public class CartTest {
 
     @Test
     public void addTripToCartFromTripWebsite() {
+        //registerNewUser(email,password);
         randomTripFromNew();
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
-        String alertAddProduct = driver.findElement(alertAfterAddMessage).getText();
-        String titleProduct2 = driver.findElement(titleProduct).getText();
+        alertAddProductText = getAlertAddProduct();
+        titleProductText = getTitleProduct();
         driver.findElement(showCart).click();
-        Assertions.assertTrue(alertAddProduct.contains(titleProduct2),"Wrong product was added to cart");
+        Assertions.assertTrue(alertAddProductText.contains(titleProductText),"Wrong product was added to cart");
     }
 
     //2.użytkownik ma możliwość dodania wybranej wycieczki do koszyka ze strony kategorii,
@@ -92,9 +102,10 @@ public class CartTest {
         randomCategory();
         randomTripFromCategory();
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
-        String alertAddProduct = driver.findElement(alertAfterAddMessage).getText();
-        String titleProduct2 = driver.findElement(titleProduct).getText();
-        Assertions.assertTrue(alertAddProduct.contains(titleProduct2),"Wrong product was added to cart");
+        alertAddProductText = getAlertAddProduct();
+        titleProductText = getTitleProduct();
+        driver.findElement(showCart).click();
+        Assertions.assertTrue(alertAddProductText.contains(titleProductText),"Wrong product was added to cart");
     }
 
     //3.użytkownik ma możliwość dodania co najmniej 10 wycieczek do koszyka (w sumie i w dowolnej kombinacji),
@@ -103,11 +114,13 @@ public class CartTest {
         randomTripFromNew();
         addAmountProduct(amountProduct);
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
-        String alertAddProduct = driver.findElement(alertAfterAddMessage).getText();
-        String titleProduct2 = driver.findElement(titleProduct).getText();
+        alertAddProductText = getAlertAddProduct();
+        titleProductText = getTitleProduct();
         driver.findElement(showCart).click();
-        Assertions.assertTrue(alertAddProduct.contains(titleProduct2),"Wrong product was added to cart");
-        Assertions.assertTrue(alertAddProduct.contains(amountProduct), "Wrong amount product was added");
+        Assertions.assertAll("Check which product was added to cart and amounts this product",
+                () ->    Assertions.assertTrue(alertAddProductText.contains(titleProductText),"Wrong product was added to cart"),
+                () ->    Assertions.assertTrue(alertAddProductText.contains(amountProduct), "Wrong amount product was added")
+        );
     }
 
 
@@ -115,16 +128,13 @@ public class CartTest {
 
     //5.użytkownik ma możliwość zmiany ilości wybranej wycieczki (pojedynczej pozycji) na stronie koszyka,
 
-    By AmountProductInCart = By.cssSelector("input[type='number']");
-    By updateButton = By.cssSelector("button[name='update_cart']");
-
     @Test
     public void changeAmountTripsInCart() {
         randomTripFromNew();
         addAmountProduct(amountProduct);
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
-        String alertAddProduct = driver.findElement(alertAfterAddMessage).getText();
-        String titleProduct2 = driver.findElement(titleProduct).getText();
+        alertAddProductText = getAlertAddProduct();
+        titleProductText = getTitleProduct();
         driver.findElement(showCart).click();
         WebElement inputAmountProductInCart = driver.findElement(AmountProductInCart);
         inputAmountProductInCart.clear();
@@ -134,25 +144,41 @@ public class CartTest {
         Assertions.assertEquals(newAmountProductInCart, valueInput, "Amount of product didn't change");
     }
 
+    //6.użytkownik ma możliwość usunięcia wycieczki na stronie koszyka (całej pozycji),
+
+    @Test
+    public void deleteTripFromCart() {
+        randomTripFromNew();
+        addAmountProduct(amountProduct);
+        wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
+        alertAddProductText = getAlertAddProduct();
+        titleProductText = getTitleProduct();
+        driver.findElement(showCart).click();
+        wait.until(ExpectedConditions.elementToBeClickable(iconDelete)).click();
+        alertMessageText = getAlertMessageAfterDeleteFromCart();
+        Assertions.assertTrue(alertMessageText.contains("Usunięto"));
+    }
+
+    //METHODS
+
+    public void deleteUser() {
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(myAccount))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(deleteAccount))).click();
+        driver.switchTo().alert().accept();
+    }
+
+    public void registerNewUser(String email, String password) {
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(myAccount))).click();
+        driver.findElement(registerEmail).sendKeys(email);
+        driver.findElement(registerPassword).sendKeys(password);
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(buttonSignUp))).click();
+    }
 
     public void addAmountProduct(String amountProduct){
         WebElement inputAmountProduct = driver.findElement(elementAmountProduct);
         inputAmountProduct.clear();
         inputAmountProduct.sendKeys(amountProduct);
     }
-
-
-    @Test
-    public void testTest() {
-//        driver.navigate().to("https://fakestore.testelka.pl/product/fuerteventura-sotavento/");
-//        wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
-//        String alertAddProduct = driver.findElement(alertAfterAddMessage).getText();
-//        String titleProduct2 = driver.findElement(titleProduct).getText();
-//        driver.findElement(showCart).click();
-//        Assertions.assertTrue(alertAddProduct.contains(titleProduct2),"Wrong product was added to cart");
-
-    }
-
 
     public void randomTripFromNew() {
         List<WebElement> list = driver.findElements(tripFromNew);
@@ -175,17 +201,19 @@ public class CartTest {
         categoryList.get(randomProduct).click();
     }
 
-    public void deleteUser() {
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(myAccount))).click();
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(deleteAccount))).click();
-        driver.switchTo().alert().accept();
+    private  String getTitleProduct() {
+        return  driver.findElement(titleProduct).getText();
     }
 
-    public void registerNewUser(String email, String password) {
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(myAccount))).click();
-        driver.findElement(registerEmail).sendKeys(email);
-        driver.findElement(registerPassword).sendKeys(password);
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(buttonSignUp))).click();
+    private String getAlertAddProduct () {
+        return driver.findElement(alertAfterAddMessage).getText();
     }
+
+    public String getAlertMessageAfterDeleteFromCart() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(alertMessage)).getText();
+    }
+
+
+
 
 }
